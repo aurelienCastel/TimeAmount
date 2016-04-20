@@ -1,0 +1,2 @@
+# TimeAmount.js
+
