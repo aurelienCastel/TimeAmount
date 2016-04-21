@@ -26,6 +26,36 @@ function TimeAmount(milliseconds, seconds, minutes, hours, days)
 			this.units[i] = 0;
 	};
 
+	this.add = function(amount, unit)
+	{
+		if(amount == null || unit == null || amount % 1 != 0 || amount < 0 || unit < 0 || unit > this.units.length - 1)
+		{
+			console.warn("TimeAmount.add() function have been called with invalid parameters.\n" +
+					     "First parameter have to be a positive integer.\n" +
+						 "Second parameter have to be a valid index for units[].");
+			return;
+		}
+
+		var sum;
+
+		for(var i = unit; i < this.units.length - 1 && amount > 0; i++)
+		{
+			this.units[i] += amount;
+			amount = Math.floor(this.units[i] / this.limits[i]);
+			this.units[i] %= this.limits[i];
+		}
+		sum = amount + this.units[i];
+		if(sum < this.limits[i])
+			this.units[i] = sum;
+		else
+		{
+			console.warn("In TimeAmount.add(), you tried to add an amount of time higher than what can be contained by the object.\n" +
+					     "Time units cannot goes beyond what is defined in limits[].");
+			for(var i = 0; i < this.units.length; i++)
+				this.units[i] = this.limits[i] - 1;
+		}
+	};
+
 	this.subtract = function(amount, unit)
 	{
 		if(amount == null || unit == null || amount % 1 != 0 || amount < 0 || unit < 0 || unit > this.units.length - 1)
@@ -59,36 +89,6 @@ function TimeAmount(milliseconds, seconds, minutes, hours, days)
 			console.warn("In TimeAmount.subtract(), you tried to subtract an amount of time higher than what is contained in the object.\n" +
 					     "Time units cannot goes under 0.");
 			this.reset();
-		}
-	};
-
-	this.add = function(amount, unit)
-	{
-		if(amount == null || unit == null || amount % 1 != 0 || amount < 0 || unit < 0 || unit > this.units.length - 1)
-		{
-			console.warn("TimeAmount.add() function have been called with invalid parameters.\n" +
-					     "First parameter have to be a positive integer.\n" +
-						 "Second parameter have to be a valid index for units[].");
-			return;
-		}
-
-		var sum;
-
-		for(var i = unit; i < this.units.length - 1 && amount > 0; i++)
-		{
-			this.units[i] += amount;
-			amount = Math.floor(this.units[i] / this.limits[i]);
-			this.units[i] %= this.limits[i];
-		}
-		sum = amount + this.units[i];
-		if(sum < this.limits[i])
-			this.units[i] = sum;
-		else
-		{
-			console.warn("In TimeAmount.add(), you tried to add an amount of time higher than what can be contained by the object.\n" +
-					     "Time units cannot goes beyond what is defined in limits[].");
-			for(var i = 0; i < this.units.length; i++)
-				this.units[i] = this.limits[i] - 1;
 		}
 	};
 }
