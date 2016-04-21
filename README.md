@@ -32,8 +32,8 @@ Will set timeAmount to 0 milliseconds, 0 seconds, 0 minutes, 0 hours and 0 days.
 
 ---
 	timeAmout.add(1, MILLISECOND);
-Will add 1 millisecond to the amount of time contained by timeAmount.
-If timeAmount is - ml : 999 | s : 59 |m : 59 | h : 23 | d : 0 -
+Will add 1 millisecond to the amount of time contained by timeAmount. <br>
+If timeAmount is - ml : 999 | s : 59 |m : 59 | h : 23 | d : 0 - <br>
 It will logically become - ml : 0 | s : 0 |m : 0 | h : 0 | d : 1 -
 
 	timeAmount.add(amount, UNIT)
@@ -44,8 +44,8 @@ To call the `.add()` method:
  
  ---
 	timeAmout.subtract(1, MILLISECOND);
-Will subtract 1 millisecond to the amount of time contained by timeAmount.
-If timeAmount is - ml : 0 | s : 0 |m : 0 | h : 0 | d : 1 -
+Will subtract 1 millisecond to the amount of time contained by timeAmount. <br>
+If timeAmount is - ml : 0 | s : 0 |m : 0 | h : 0 | d : 1 - <br>
 It will logically become - ml : 999 | s : 59 |m : 59 | h : 23 | d : 0 -
 
 	timeAmount.subtract(amount, UNIT)
@@ -56,7 +56,7 @@ To call the `.subtract()` method:
 
 ---
 	timeAmount.second = timeAmount.minute;
-You can GET the time units contained by timeAmount by simply accessing them with the `.`  .
-You can SET the time units contained by timeAmount by simply assigning with the `=`  .
+You can GET the time units contained by timeAmount by simply accessing them with the `.`  . <br>
+You can SET the time units contained by timeAmount by simply assigning with the `=`  . <br>
 Don't  forget, **Time units cannot goes beyond a certain limit and cannot goes under 0.**
 
