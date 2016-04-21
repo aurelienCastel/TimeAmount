@@ -42,7 +42,7 @@ To call the `.add()` method:
  -  The first argument is a positive integer
  -  The second argument is the unit you want to add typed in UPPERCASE
  
- ---
+---
 	timeAmout.subtract(1, MILLISECOND);
 Will subtract 1 millisecond to the amount of time contained by timeAmount. <br>
 If timeAmount is - ml : 0 | s : 0 |m : 0 | h : 0 | d : 1 - <br>
