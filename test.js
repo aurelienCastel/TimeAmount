@@ -17,7 +17,7 @@ console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() +
 			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
 
 console.log("var timeAmount = new TimeAmount(1);");
-var timeAmount = new TimeAmount(100);
+var timeAmount = new TimeAmount(1);
 console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
 			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
 			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
@@ -110,181 +110,8 @@ console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() +
 			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
 
 console.log("-----------------------------------------------------------------------------");
-console.log("----------------------------------TimeAmount subtract------------------------");
-console.log("-----------------------------------------------------------------------------");
-
-console.log("timeAmount.setTo(2, 3, 8, 6, 2);");
-timeAmount.setTo(2, 3, 8, 6, 2);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.subtract();");
-timeAmount.subtract();
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.subtract(1);");
-timeAmount.subtract(1);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.subtract(1, -1);");
-timeAmount.subtract(1, -1);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.subtract(1, timeAmount.units.length);");
-timeAmount.subtract(1, timeAmount.units.length);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.subtract(-1, MILLISECOND);");
-timeAmount.subtract(-1, MILLISECOND);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.subtract(1.5, MILLISECOND);");
-timeAmount.subtract(1.5, MILLISECOND);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.subtract(0, MILLISECOND);");
-timeAmount.subtract(0, MILLISECOND);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.subtract(1, MILLISECOND);");
-timeAmount.subtract(1, MILLISECOND);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.subtract(2, MILLISECOND);");
-timeAmount.subtract(2, MILLISECOND);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.subtract(1000, MILLISECOND);");
-timeAmount.subtract(1000, MILLISECOND);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.subtract(10500, MILLISECOND);");
-timeAmount.subtract(1500, MILLISECOND);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.subtract(1000000000000000000, MILLISECOND);");
-timeAmount.subtract(1000000000000000000, MILLISECOND);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.setTo(2, 3, 8, 6, 2);");
-timeAmount.setTo(2, 3, 8, 6, 2);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.subtract(1, SECOND);");
-timeAmount.subtract(1, SECOND);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.subtract(2, SECOND);");
-timeAmount.subtract(2, SECOND);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.subtract(60, SECOND);");
-timeAmount.subtract(60, SECOND);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.subtract(65, SECOND);");
-timeAmount.subtract(65, SECOND);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.subtract(1000000000000000000, SECOND);");
-timeAmount.subtract(1000000000000000000, SECOND);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.setTo(2, 3, 8, 0, 20);");
-timeAmount.setTo(2, 3, 8, 0, 20);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.subtract(1, HOUR);");
-timeAmount.subtract(1, HOUR);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.subtract(2, HOUR);");
-timeAmount.subtract(2, HOUR);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.subtract(60, HOUR);");
-timeAmount.subtract(60, HOUR);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.subtract(65, HOUR);");
-timeAmount.subtract(65, HOUR);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.subtract(1000000000000000000, HOUR);");
-timeAmount.subtract(1000000000000000000, HOUR);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.setTo(2, 3, 8, 0, 20);");
-timeAmount.setTo(2, 3, 8, 0, 20);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.subtract(1, DAY);");
-timeAmount.subtract(1, DAY);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("timeAmount.subtract(1000000000000000000, DAY);");
-timeAmount.subtract(1000000000000000000, DAY);
-console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
-			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
-			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
-
-console.log("-----------------------------------------------------------------------------");
 console.log("-------------------------------------TimeAmount add--------------------------");
 console.log("-----------------------------------------------------------------------------");
-
 
 console.log("timeAmount.setTo(2, 3, 8, 6, 2);");
 timeAmount.setTo(2, 3, 8, 6, 2);
@@ -304,8 +131,8 @@ console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() +
 			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
 			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
 
-console.log("timeAmount.add(1, timeAmount.units.length);");
-timeAmount.add(1, timeAmount.units.length);
+console.log("timeAmount.add(1, 5);");
+timeAmount.add(1, 5);
 console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
 			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
 			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
@@ -492,6 +319,178 @@ console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() +
 
 console.log("timeAmount.add(1, MILLISECOND);");
 timeAmount.add(1, MILLISECOND);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("-----------------------------------------------------------------------------");
+console.log("----------------------------------TimeAmount subtract------------------------");
+console.log("-----------------------------------------------------------------------------");
+
+console.log("timeAmount.setTo(2, 3, 8, 6, 2);");
+timeAmount.setTo(2, 3, 8, 6, 2);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.subtract();");
+timeAmount.subtract();
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.subtract(1);");
+timeAmount.subtract(1);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.subtract(1, -1);");
+timeAmount.subtract(1, -1);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.subtract(1, 5);");
+timeAmount.subtract(1, 5);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.subtract(-1, MILLISECOND);");
+timeAmount.subtract(-1, MILLISECOND);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.subtract(1.5, MILLISECOND);");
+timeAmount.subtract(1.5, MILLISECOND);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.subtract(0, MILLISECOND);");
+timeAmount.subtract(0, MILLISECOND);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.subtract(1, MILLISECOND);");
+timeAmount.subtract(1, MILLISECOND);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.subtract(2, MILLISECOND);");
+timeAmount.subtract(2, MILLISECOND);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.subtract(1000, MILLISECOND);");
+timeAmount.subtract(1000, MILLISECOND);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.subtract(10500, MILLISECOND);");
+timeAmount.subtract(1500, MILLISECOND);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.subtract(1000000000000000000, MILLISECOND);");
+timeAmount.subtract(1000000000000000000, MILLISECOND);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.setTo(2, 3, 8, 6, 2);");
+timeAmount.setTo(2, 3, 8, 6, 2);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.subtract(1, SECOND);");
+timeAmount.subtract(1, SECOND);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.subtract(2, SECOND);");
+timeAmount.subtract(2, SECOND);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.subtract(60, SECOND);");
+timeAmount.subtract(60, SECOND);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.subtract(65, SECOND);");
+timeAmount.subtract(65, SECOND);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.subtract(1000000000000000000, SECOND);");
+timeAmount.subtract(1000000000000000000, SECOND);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.setTo(2, 3, 8, 0, 20);");
+timeAmount.setTo(2, 3, 8, 0, 20);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.subtract(1, HOUR);");
+timeAmount.subtract(1, HOUR);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.subtract(2, HOUR);");
+timeAmount.subtract(2, HOUR);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.subtract(60, HOUR);");
+timeAmount.subtract(60, HOUR);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.subtract(65, HOUR);");
+timeAmount.subtract(65, HOUR);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.subtract(1000000000000000000, HOUR);");
+timeAmount.subtract(1000000000000000000, HOUR);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.setTo(2, 3, 8, 0, 20);");
+timeAmount.setTo(2, 3, 8, 0, 20);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.subtract(1, DAY);");
+timeAmount.subtract(1, DAY);
+console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
+			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
+			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());
+
+console.log("timeAmount.subtract(1000000000000000000, DAY);");
+timeAmount.subtract(1000000000000000000, DAY);
 console.log("timeAmount: milliseconds = " + timeAmount.milliseconds.toString() + " | seconds = " +
 			timeAmount.seconds.toString() + " | minutes = " + timeAmount.minutes.toString() + " | hours = " +
 			timeAmount.hours.toString() + " | days = " + timeAmount.days.toString());

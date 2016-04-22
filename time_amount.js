@@ -2,14 +2,13 @@ const MILLISECOND = 0, SECOND = 1, MINUTE = 2, HOUR = 3, DAY = 4;
 
 function TimeAmount(milliseconds, seconds, minutes, hours, days)
 {
-	this.units = [0, 0, 0, 0, 0];
 	this.limits = [1000, 60, 60, 24, 1000000];
 
-	this.milliseconds = milliseconds;
-	this.seconds = seconds;
-	this.minutes = minutes;
-	this.hours = hours;
-	this.days = days;
+	this.milliseconds = 0;
+	this.seconds = 0;
+	this.minutes = 0;
+	this.hours = 0;
+	this.days = 0;
 
 	this.setTo = function(milliseconds, seconds, minutes, hours, days)
 	{
@@ -20,70 +19,90 @@ function TimeAmount(milliseconds, seconds, minutes, hours, days)
 		this.days = days;
 	};
 
+	this.setToArray = function(array)
+	{
+		this.milliseconds = array[0];
+		this.seconds = array[1];
+		this.minutes = array[2];
+		this.hours = array[3];
+		this.days = array[4];
+	};
+
 	this.reset = function()
 	{
-		for(var i = 0; i < this.units.length; i++)
-			this.units[i] = 0;
+		this.milliseconds = 0;
+		this.seconds = 0;
+		this.minutes = 0;
+		this.hours = 0;
+		this.days = 0;
 	};
 
 	this.add = function(amount, unit)
 	{
-		if(amount == null || unit == null || amount % 1 != 0 || amount < 0 || unit < 0 || unit > this.units.length - 1)
+		var units = [this.milliseconds, this.seconds, this.minutes, this.hours, this.days];
+		var sum;
+
+		if(amount == null || unit == null || amount % 1 != 0 || amount < 0 || unit < 0 || unit >= units.length)
 		{
 			console.warn("TimeAmount.add() function have been called with invalid parameters.\n" +
 					     "First parameter have to be a positive integer.\n" +
-						 "Second parameter have to be a valid index for units[].");
+						 "Second parameter have to be a valid index to a time unit.");
 			return;
 		}
 
-		var sum;
 
-		for(var i = unit; i < this.units.length - 1 && amount > 0; i++)
+		for(var i = unit; i < units.length - 1 && amount > 0; i++)
 		{
-			this.units[i] += amount;
-			amount = Math.floor(this.units[i] / this.limits[i]);
-			this.units[i] %= this.limits[i];
+			units[i] += amount;
+			amount = Math.floor(units[i] / this.limits[i]);
+			units[i] %= this.limits[i];
 		}
-		sum = amount + this.units[i];
+		sum = amount + units[i];
 		if(sum < this.limits[i])
-			this.units[i] = sum;
+			units[i] = sum;
 		else
 		{
 			console.warn("In TimeAmount.add(), you tried to add an amount of time higher than what can be contained by the object.\n" +
 					     "Time units cannot goes beyond what is defined in limits[].");
-			for(var i = 0; i < this.units.length; i++)
-				this.units[i] = this.limits[i] - 1;
+			for(var i = 0; i < units.length; i++)
+				units[i] = this.limits[i] - 1;
 		}
+
+		this.setToArray(units);
 	};
 
 	this.subtract = function(amount, unit)
 	{
-		if(amount == null || unit == null || amount % 1 != 0 || amount < 0 || unit < 0 || unit > this.units.length - 1)
+		var remainder;
+		var units = [this.milliseconds, this.seconds, this.minutes, this.hours, this.days];
+
+		if(amount == null || unit == null || amount % 1 != 0 || amount < 0 || unit < 0 || unit >= units.length)
 		{
 			console.warn("TimeAmount.subtract() function have been called with invalid parameters.\n" +
 					     "First parameter have to be a positive integer.\n" +
-						 "Second parameter have to be a valid index for units[].");
+						 "Second parameter have to be a valid index to a time unit.");
 			return;
 		}
 
-		var remainder;
-
-		for(var i = unit; i < this.units.length - 1 && amount > this.units[i]; i++)
+		for(var i = unit; i < units.length - 1 && amount > units[i]; i++)
 		{
 			remainder = amount % this.limits[i];
 
-			if(remainder > this.units[i])
+			if(remainder > units[i])
 			{
-				this.units[i] += this.limits[i];
+				units[i] += this.limits[i];
 				amount += this.limits[i];
 			}
 
-			this.units[i] -= remainder;
+			units[i] -= remainder;
 			amount -= remainder;
 			amount /= this.limits[i];
 		}
-		if(amount <= this.units[i])
-			this.units[i] -= amount;
+		if(amount <= units[i])
+		{
+			units[i] -= amount;
+			this.setToArray(units);
+		}
 		else
 		{
 			console.warn("In TimeAmount.subtract(), you tried to subtract an amount of time higher than what is contained in the object.\n" +
@@ -91,13 +110,15 @@ function TimeAmount(milliseconds, seconds, minutes, hours, days)
 			this.reset();
 		}
 	};
+
+	this.setTo(milliseconds, seconds, minutes, hours, days);
 }
 
 Object.defineProperty(TimeAmount.prototype, "milliseconds",
 {
-	get : function()
+	get: function()
 	{
-		return this.units[MILLISECOND];
+		return this._milliseconds;
 	},
 	set : function(value)
 	{
@@ -109,24 +130,24 @@ Object.defineProperty(TimeAmount.prototype, "milliseconds",
 
 		if(value >= this.limits[MILLISECOND]) 
 		{
-			this.units[MILLISECOND] = this.limits[MILLISECOND] - 1;
+			this._milliseconds = this.limits[MILLISECOND] - 1;
 			console.warn("Time units cannot goes beyond what is defined in limits[].");
 		}
 		else if(value < 0)
 		{
-			this.units[MILLISECOND] = 0;
+			this._milliseconds = 0;
 			console.warn("Time units cannot goes under 0.");
 		}
 		else
-			this.units[MILLISECOND] = value;
+			this._milliseconds = value;
 	}
 });
 
 Object.defineProperty(TimeAmount.prototype, "seconds",
 {
-	get : function()
+	get: function()
 	{
-		return this.units[SECOND];
+		return this._seconds;
 	},
 	set : function(value)
 	{
@@ -138,24 +159,24 @@ Object.defineProperty(TimeAmount.prototype, "seconds",
 
 		if(value >= this.limits[SECOND]) 
 		{
-			this.units[SECOND] = this.limits[SECOND] - 1;
+			this._seconds = this.limits[SECOND] - 1;
 			console.warn("Time units cannot goes beyond what is defined in limits[].");
 		}
 		else if(value < 0)
 		{
-			this.units[SECOND] = 0;
+			this._seconds = 0;
 			console.warn("Time units cannot goes under 0.");
 		}
 		else
-			this.units[SECOND] = value;
+			this._seconds = value;
 	}
 });
 
 Object.defineProperty(TimeAmount.prototype, "minutes",
 {
-	get : function()
+	get: function()
 	{
-		return this.units[MINUTE];
+		return this._minutes;
 	},
 	set : function(value)
 	{
@@ -166,24 +187,24 @@ Object.defineProperty(TimeAmount.prototype, "minutes",
 		}
 		if(value >= this.limits[MINUTE]) 
 		{
-			this.units[MINUTE] = this.limits[MINUTE] - 1;
+			this._minutes = this.limits[MINUTE] - 1;
 			console.warn("Time units cannot goes beyond what is defined in limits[].");
 		}
 		else if(value < 0)
 		{
-			this.units[MINUTE] = 0;
+			this._minutes = 0;
 			console.warn("Time units cannot goes under 0.");
 		}
 		else
-			this.units[MINUTE] = value;
+			this._minutes = value;
 	}
 });
 
 Object.defineProperty(TimeAmount.prototype, "hours",
 {
-	get : function()
+	get: function()
 	{
-		return this.units[HOUR];
+		return this._hours;
 	},
 	set : function(value)
 	{
@@ -194,24 +215,24 @@ Object.defineProperty(TimeAmount.prototype, "hours",
 		}
 		if(value >= this.limits[HOUR]) 
 		{
-			this.units[HOUR] = this.limits[HOUR] - 1;
+			this._hours = this.limits[HOUR] - 1;
 			console.warn("Time units cannot goes beyond what is defined in limits[].");
 		}
 		else if(value < 0)
 		{
-			this.units[HOUR] = 0;
+			this._hours = 0;
 			console.warn("Time units cannot goes under 0.");
 		}
 		else
-			this.units[HOUR] = value;
+			this._hours = value;
 	}
 });
 
 Object.defineProperty(TimeAmount.prototype, "days",
 {
-	get : function()
+	get: function()
 	{
-		return this.units[DAY];
+		return this._days;
 	},
 	set : function(value)
 	{
@@ -223,15 +244,15 @@ Object.defineProperty(TimeAmount.prototype, "days",
 
 		if(value >= this.limits[DAY]) 
 		{
-			this.units[DAY] = this.limits[DAY] - 1;
+			this._days = this.limits[DAY] - 1;
 			console.warn("Time units cannot goes beyond what is defined in limits[].");
 		}
 		else if(value < 0)
 		{
-			this.units[DAY] = 0;
+			this._days = 0;
 			console.warn("Time units cannot goes under 0.");
 		}
 		else
-			this.units[DAY] = value;
+			this._days = value;
 	}
 });
